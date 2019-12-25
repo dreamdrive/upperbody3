@@ -1,0 +1,316 @@
+<?xml version="1.0" ?>
+<robot name="upper_body">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/base.stl" />
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="body_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/body.stl" />
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="left_x2_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/2x_joint.stl" />
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="right_x2_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/2x_joint.stl" />
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="left_arm_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/larm.stl" />
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="right_arm_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/rarm.stl" />
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="left_endpoint1">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/endpoint.stl" />
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0. 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="left_endpoint2">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/endpoint.stl" />
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0. 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="left_endpoint3">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/endpoint.stl" />
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0. 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="right_endpoint1">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/endpoint.stl" />
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0. 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="right_endpoint2">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/endpoint.stl" />
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0. 2.0" />
+            </material>
+        </visual>
+    </link>
+    <link name="right_endpoint3">
+        <visual>
+            <geometry>
+                <mesh filename="package://upperbody3_description/meshes/endpoint.stl" />
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0. 2.0" />
+            </material>
+        </visual>
+    </link>
+    <joint name="waist" type="revolute">
+        <parent link="base_link" />
+        <child link="body_link" />
+        <origin xyz="0 0 0.17000" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="left_j1" type="revolute">
+        <parent link="body_link" />
+        <child link="left_x2_link" />
+        <origin xyz="0.00482 0.06118 0.005" rpy="0 0 0.5" />
+        <axis xyz="0 0 -1" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="right_j1" type="revolute">
+        <parent link="body_link" />
+        <child link="right_x2_link" />
+        <origin xyz="0.00482 -0.06118 0.005" rpy="0 0 -0.5" />
+        <axis xyz="0 0 -1" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="left_j2" type="revolute">
+        <parent link="left_x2_link" />
+        <child link="left_arm_link" />
+        <origin xyz="0.024 -0.019 0.019" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="right_j2" type="revolute">
+        <parent link="right_x2_link" />
+        <child link="right_arm_link" />
+        <origin xyz="0.024 -0.019 0.019" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="left_end_joint1" type="revolute">
+        <parent link="left_arm_link" />
+        <child link="left_endpoint1" />
+        <origin xyz="0.1255 0.033 0.00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="left_end_joint2" type="revolute">
+        <parent link="left_endpoint1" />
+        <child link="left_endpoint2" />
+        <origin xyz="0.00 0.00 0.00" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="left_end_joint3" type="revolute">
+        <parent link="left_endpoint2" />
+        <child link="left_endpoint3" />
+        <origin xyz="0.00 0.00 0.00" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="right_end_joint1" type="revolute">
+        <parent link="right_arm_link" />
+        <child link="right_endpoint1" />
+        <origin xyz="0.1255 0.005 0.00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="right_end_joint2" type="revolute">
+        <parent link="right_endpoint1" />
+        <child link="right_endpoint2" />
+        <origin xyz="0.00 0.00 0.00" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    <joint name="right_end_joint3" type="revolute">
+        <parent link="right_endpoint2" />
+        <child link="right_endpoint3" />
+        <origin xyz="0.00 0.00 0.00" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5" />
+    </joint>
+    
+<transmission name="trans_waist">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="waist">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="waist_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_j1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_j1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_j1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_j1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_j1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_j1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_j2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_j2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_j2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_j2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_j2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_j2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_end_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_end_joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_end_joint1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_end_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_end_joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_end_joint2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_end_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_end_joint3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_end_joint3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_end_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_end_joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_end_joint1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_end_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_end_joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_end_joint2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_end_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_end_joint3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_end_joint3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

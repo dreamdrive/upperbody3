@@ -1,0 +1,20 @@
+controller_list:
+  - name: fake_left_controller
+    joints:
+      - waist
+      - left_j1
+      - left_j2
+      - left_end_joint1
+      - left_end_joint2
+      - left_end_joint3
+  - name: fake_right_controller
+    joints:
+      - waist
+      - right_j1
+      - right_j2
+      - right_end_joint1
+      - right_end_joint2
+      - right_end_joint3
+  - name: fake_waist_controller
+    joints:
+      - waist

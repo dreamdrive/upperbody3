@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: upperbody3_description
+    relative_path: urdf/upperbody3.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/upper_body.srdf
+  CONFIG:
+    author_name: hirokazu onomichi
+    author_email: hirokazu@dream-drive.net
+    generated_timestamp: 1577279984
