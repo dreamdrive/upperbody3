@@ -1,9 +1,11 @@
 # upperbody3
  
-とりあえず、Dynamixel workbenchを立ち上げて、いろいろうごく。 
-上半身ロボット。
+dynamixel_workbench_controllersを立ち上げて、いろいろうごかす。 <br>
+dynamixel_workbench_controllersの練習用の上半身ロボット。 <br>
+move itとの連携もやってみた。
 
-move itからも動かす。
+作者 : hirokazu onomichi<br>
+http://dream-drive.net
 
 ■ MoveIT!で実機連動のプランニング
 
