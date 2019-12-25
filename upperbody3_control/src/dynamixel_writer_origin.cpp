@@ -1,4 +1,3 @@
-// ~/catkin_ws/src/dynamixel_micchy/src/dynamixel_writer.cpp
 #include "ros/ros.h"
 #include "ros/time.h"
 

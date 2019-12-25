@@ -15,7 +15,7 @@
     <param name="use_joint_states_topic"  value="$(arg use_joint_state)"/>
     <param name="use_cmd_vel_topic"       value="$(arg use_cmd_vel)"/>
 
-　　<remap from="dynamixel_workbench/joint_states" to="joint_states"/><!-- < 追加 >   -->
+　　<remap from="dynamixel_workbench/joint_states" to="joint_states"/><!-- < 追加 > joint_statesに吐き出すとRVizが動く  -->
 
     <rosparam>
       publish_period: 0.010
