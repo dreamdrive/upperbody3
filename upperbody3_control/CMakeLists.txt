@@ -18,6 +18,8 @@ find_package(catkin REQUIRED COMPONENTS
   trajectory_msgs
   cmake_modules
   std_msgs
+  dynamixel_workbench_msgs
+  dynamixel_workbench_toolbox
 )
 
 # Resolve system dependency on yaml-cpp, which apparently does not
@@ -75,6 +77,10 @@ add_executable(dynamixel2dynamixel src/dynamixel2dynamixel.cpp)
 add_dependencies(dynamixel2dynamixel ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(dynamixel2dynamixel ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES})
 
+add_executable(js2dynamixel src/js2dynamixel.cpp)
+add_dependencies(js2dynamixel ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(js2dynamixel ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES})
+
 add_executable(dynamixel_reader src/dynamixel_reader.cpp)
 add_dependencies(dynamixel_reader ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(dynamixel_reader ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES})
@@ -96,6 +102,10 @@ install(TARGETS moveit2dynamixel
 )
 
 install(TARGETS dynamixel2dynamixel
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS js2dynamixel
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

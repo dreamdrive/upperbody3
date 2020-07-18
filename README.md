@@ -61,3 +61,9 @@ $ roslaunch upperbody3_description dynamixel_controllers.launch
 $ rosrun upperbody3_control dynamixel_face
 ~~~
 
+### FTDIドライバのレイテンシタイマーの変更
+
+```
+ $ sudo chmod a+w /sys/bus/usb-serial/devices/ttyUSB0/latency_timer
+ $ echo 1 > /sys/bus/usb-serial/devices/ttyUSB0/latency_timer
+```

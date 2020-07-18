@@ -76,7 +76,7 @@ int main(int argc, char **argv)
   jtp0.points[0].positions[4] = 0.0;   // 原点のコマンドを送り続けるので起動時にposition0に移動するだけ
 
   while(ros::ok()) {
-    jtp0.header.stamp = ros::Time::now();  
+    jtp0.header.stamp = ros::Time::now();
 
     if(fabs(jtp0.points[0].positions[0] - ((double)face_x - 320.0)/5000.0) < 1.7){
       jtp0.points[0].positions[0] = jtp0.points[0].positions[0] - (face_x - 320.0)/5000.0;

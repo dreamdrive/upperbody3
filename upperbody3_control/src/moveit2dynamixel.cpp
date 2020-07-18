@@ -81,8 +81,6 @@ int main(int argc, char **argv)
     jtp0.points[0].positions[3] = joint_pos[3].data;  // 右から左(マスター＆スレーブ)
     jtp0.points[0].positions[4] = joint_pos[4].data;  // 右から左(マスター＆スレーブ)
 
-
-
     arm_pub.publish(jtp0);
 
     //ROS_INFO("torikometeru? = %f",joint_pos[1].data);
